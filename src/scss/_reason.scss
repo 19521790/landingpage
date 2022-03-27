@@ -1,0 +1,88 @@
+.reason {
+  background-image: linear-gradient(
+    90deg,
+    rgba(250, 225, 147, 1) 0%,
+    rgba(251, 194, 13, 1) 20%,
+    rgba(251, 194, 13, 1) 80%,
+    rgba(250, 225, 147, 1) 100%
+  );
+
+  height: 700px;
+  margin-top: 150px;
+  transform: skewY(-1deg);
+  &_content {
+    transform: skewY(1deg);
+    h3 {
+      padding-top: 30px;
+    }
+  }
+  .reason_cards {
+    padding: 80px;
+    .reason_card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 130px;
+      .hexagon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 126px;
+        width: 200px;
+        background-color: rgb(219, 219, 219);
+        margin: 10px 0;
+        border-radius: 10px;
+        position: relative;
+
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          bottom: 0px;
+          background-color: inherit;
+          width: 100%;
+          height: 100%;
+          transform: rotate(-60deg);
+          border-radius: inherit;
+        }
+        &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          background-color: inherit;
+          width: 100%;
+          height: 100%;
+          transform: rotate(60deg);
+          border-radius: inherit;
+        }
+        &_child {
+          z-index: 1;
+          background-color: rgb(240, 239, 239);
+          width: 170px;
+          height: 107px;
+          .hexagon_content {
+            z-index: 5;
+            text-align: center;
+            padding: 0 10px;
+            font-size: 15px;
+            line-height: 22px;
+            font-weight: 600;
+            color: rgb(4, 82, 105);
+          }
+          .hexagon_icon {
+            font-size: 30px;
+            padding: 15px 15px;
+            border-radius: 50%;
+            border-color: rgb(122, 122, 122);
+            border-width: 2px;
+            border-style: solid;
+            position: absolute;
+            top: -80px;
+            z-index: 6;
+          }
+        }
+      }
+    }
+  }
+}

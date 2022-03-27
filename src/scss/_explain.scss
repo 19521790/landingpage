@@ -1,0 +1,58 @@
+.explain {
+  height: 450px;
+  background-color: rgb(223, 223, 223);
+  padding: 30px 30px;
+  position: relative;
+
+  button {
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translate(-50%, -50%);
+    margin: 0;
+  }
+  &-cards {
+    margin-top: 50px;
+    .explain_card {
+      margin-top: 20px;
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 0 20px;
+      background-color: white;
+
+      margin: 0 10px;
+      height: 200px;
+      .title {
+        text-align: center;
+        padding: 10px 15px;
+        font-weight: 600;
+        font-size: 20px;
+        color: orange;
+        background-color: rgb(36, 35, 35);
+        border-radius: 20px;
+        position: absolute;
+        top: -20px;
+      }
+      .base-title {
+        font-size: 18px;
+        line-height: 25px;
+        padding: 0 30px;
+        text-align: center;
+      }
+      .icon {
+        color: $primaryBtn;
+        font-size: 50px;
+        padding: 15px 15px;
+        border-radius: 50%;
+        border-color: $primaryBtn;
+        border-width: 5px;
+        border-style: solid;
+        position: absolute;
+        bottom: -50px;
+      }
+    }
+  }
+}

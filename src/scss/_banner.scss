@@ -1,0 +1,32 @@
+.banner_container {
+  padding: 0 60px;
+  height: 450px;
+  background-color: #ffb526;
+  img {
+    width: 40%;
+    position: absolute;
+    top: 30px;
+    left: 80px;
+    animation: translateY_img 2s;
+  }
+  .banner_introduce {
+    padding-top: 200px;
+    padding-left: 150px;
+    padding-right: 400px;
+    text-align: center;
+    width: 50%;
+    h4 {
+      line-height: 25px;
+      font-size: 18px;
+      font-family: "Playfair Display", serif;
+    }
+    @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
+    h3 {
+      font-family: "Source Sans Pro", sans-serif;
+      margin: 0;
+    }
+  }
+  .contact_content {
+    margin-top: 20px;
+  }
+}

@@ -7,6 +7,7 @@ import {
   AiOutlineAreaChart,
   AiOutlineFieldTime,
 } from "react-icons/ai";
+
 import {
   GiTakeMyMoney,
   GiCheckMark,
@@ -14,11 +15,11 @@ import {
   GiPodiumWinner,
 } from "react-icons/gi";
 import { CgArrowsExchangeAltV } from "react-icons/cg";
-import { BsPeopleFill } from "react-icons/bs";
+import { BsPeopleFill, BsFillTelephoneFill } from "react-icons/bs";
 import { FaHandsHelping } from "react-icons/fa";
 import { RiAccountCircleLine } from "react-icons/ri";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import "aos/dist/aos.css";
 import Product from "./components/Product";
 import ReasonCard from "./components/ReasonCard";
@@ -26,18 +27,23 @@ import Talk from "./components/Talk";
 import Share from "./components/Share";
 import Contact from "./components/Contact";
 import Slide from "./components/Slide";
+import Banner from "./components/Banner";
+import Popup from "./components/Popup";
+import MessengerCustomerChat from "react-messenger-customer-chat";
+import Money from "./components/Money";
 
 function App() {
   useEffect(() => {
     Aos.init({ duration: 1000, mirror: false, once: true });
   }, []);
-
+  function showPopup() {
+    refShow.current.setState({ show: true });
+  }
+  const refShow = useRef();
   return (
     <div>
       <div className="container">
-        <div className="banner_container">
-          <img src={require("./img/banner.png")} alt="" />
-        </div>
+        <Banner showPopup={showPopup} />
         {/* BANNER */}
         <div className="explain">
           <h3 data-aos="fade-up">Vì sao đầu tư hàng hoá là đúng đắn</h3>
@@ -63,7 +69,9 @@ function App() {
               icon_name={<CgArrowsExchangeAltV className="icon" />}
             />
           </div>
-          <button>Đăng kí ngay</button>
+          <a href="#contact">
+            <button>Đăng kí ngay</button>
+          </a>
         </div>
         {/* danh muc giao dich */}
         <div className="product">
@@ -77,7 +85,10 @@ function App() {
             <Product text="Kim loại" img={require("./img/nangluong.png")} />
             <Product text="Năng lượng" img={require("./img/kimloai.png")} />
           </div>
-          <button>Hotline: 0999999999</button>
+
+          <a href="tel:099999999">
+            <button>Hotline: 0999999999</button>
+          </a>
         </div>
         {/* li do dau tu vao gia cat loi */}
         <div className="reason">
@@ -149,7 +160,9 @@ function App() {
               content="Tôi bắt đầu tham gia giao dịch trên thị trường này nhiều hơn từ khi có loại hình giao dịch Spread vì vốn đầu tư được tối ưu và độ rủi ro cũng thấp hơn. Ngoài ra, đây là thị trường đã được cấp phép tại Việt Nam nên cũng cảm thấy yên tâm khi đầu tư."
             />
           </div>
-          <button>Hotline: 09999999999</button>
+          <a href="tel:099999999">
+            <button>Hotline: 0999999999</button>
+          </a>
         </div>
         {/* Liên thông sở nước ngoài */}
         <div className="share">
@@ -167,12 +180,14 @@ function App() {
             </div>
           </div>
         </div>
+        {/* money */}
+        <Money />
         {/* lien he */}
         <div className="contact_container">
           <h3>Liên hệ ngay</h3>
           <div className="row">
             <div className="col-2">
-              <Contact />
+              <Contact showPopup={showPopup} />
             </div>
             <div className="col-2">
               <Slide />
@@ -180,6 +195,21 @@ function App() {
           </div>
         </div>
       </div>
+      <Popup ref={refShow} />
+      <div className="phone_screen">
+        <a href="tel:09999999">
+          <div className="phone_screen_icon">
+            <BsFillTelephoneFill />
+          </div>
+          <div className="phone_screen_number">099999999</div>
+          <div className="phone_screen_border"></div>
+        </a>
+      </div>
+      <MessengerCustomerChat
+        pageId="101354468461120"
+        appId="<APP_ID>"
+        htmlRef="<REF_STRING>"
+      />
     </div>
   );
 }

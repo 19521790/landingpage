@@ -1,8 +1,12 @@
 import React from "react";
 import { FcNext, FcPrevious } from "react-icons/fc";
 export default function Slide() {
-  function go_next() {}
-  function go_previous() {}
+  function go_next() {
+    document.getElementById("first_img").classList.add("move_left");
+  }
+  function go_previous() {
+    document.getElementById("first_img").classList.remove("move_left");
+  }
   return (
     <div className="slide_container">
       <p>
@@ -10,7 +14,11 @@ export default function Slide() {
         Đông Hòa, Dĩ An, Bình Dương
       </p>
       <div className="slide_container_slider">
-        <img src={require("../img/slide1.png")} alt="" className="first_"/>
+        <img
+          src={require("../img/slide1.png")}
+          id="first_img"
+          className="first_img"
+        />
         <img src={require("../img/slide2.png")} alt="" />
         <button className="icon_next" onClick={go_next}>
           <FcNext className="icon" />
